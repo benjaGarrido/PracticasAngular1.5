@@ -6,8 +6,11 @@
     <script src="js/main.js"></script>
 </head>
 
-<body ng-app="SorteoPremios" ng-controller="PremioController" data-ng-init="elegirPremio()">
-    <h1>¡Bienvenido al sorteo de Premios!</h1>
-    <h3>¡Enhorabuena!¡te ha tocado un premio {{premio}}!</h3></body>
+<body ng-app="SorteoPremios" ng-controller="PremioController" data-ng-init="elegirPremios()">
+    <h1>¡Bienvenido al sorteo de premios del día {{fechaSorteo}}!</h1>
+    <h3>¡Enhorabuena!¡Aquí tienes la lista de premios!</h3>
+    <li ng-repeat="premio in premios">
+        <h3>{{premio}}</h3> </li>
+</body>
 
 </html>
