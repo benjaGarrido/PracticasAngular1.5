@@ -1,14 +1,23 @@
 /*global angular*/
-var angularApp = angular.module('SorteoPremios', ['ui.bootstrap']);
-angularApp.controller('PremioController', function ($scope) {
+var angularApp = angular.module('GeneradorLoterias', ['ui.bootstrap', 'ngRoute']);
+angularApp.controller('MainController', function ($scope, $location) {
     'use strict';
-    $scope.listaPremios = {
-        viajes: ['viaje a Japón', 'crucero por el Caribe']
-        , motor: ['coche deportivo', 'fuera borda']
-        , propiedades: ['apartamento en la playa', 'piso en la Plaza Mayor']
+    $scope.initApp = function () {
+        $location.path('/seleccion');
     };
-    $scope.elegirPremios = function (tipoPremio) {
-        var premiosPosibles = $scope.listaPremios[tipoPremio];
-        $scope.premio = premiosPosibles[Math.floor(Math.random() * premiosPosibles.length)];
-    };
-});
+}).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+    'use strict';
+    $locationProvider.html5Mode();
+    $routeProvider.when('/seleccion', {
+        templateUrl: 'view/seleccionLoteria.tpl.html'
+        , controller: 'SeleccionController'
+    });
+    $routeProvider.when('/cargando', {
+        templateUrl: 'view/cargandoResultados.tpl.html'
+        , controller: 'CargandoController'
+    });
+    $routeProvider.when('/resultados', {
+        templateUrl: 'view/resultadoCombinacion.tpl.html'
+        , controller: 'ResultadoController'
+    });
+}]);
