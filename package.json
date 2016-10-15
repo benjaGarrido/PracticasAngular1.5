@@ -1,21 +1,46 @@
 {
-  "name": "sorteo",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Benjamin Garrido",
-  "license": "ISC",
-  "dependencies": {
-    "bower": "^1.7.9",
-    "gulp": "^3.9.1",
-    "gulp-closure-compiler": "^0.4.0",
-    "gulp-gjslint": "^0.1.5",
-    "gulp-jshint": "^2.0.1",
-    "gulp-jslint": "^1.0.5",
-    "gulp-webserver": "^0.9.1",
-    "jshint": "^2.9.3"
-  }
+    "name": "sorteoPremios"
+    , "version": "1.0.0"
+    , "description": ""
+    , "author": "Benjamin Garrido <benjamin.garrido@gmail.com>"
+    , "contributors": [
+        {
+            "name": "Benjamin Garrido"
+            , "email": "benjamin.garrido@gmail.com"
+    }
+  ]
+    , "scripts": {
+        "test": "gulp"
+        , "predeploy": "gulp deploy"
+    }
+    , "main": "index.html"
+    , "repository": {
+        "type": "git"
+        , "url": "https://github.com/benjaGarrido/SorteoPremios.git"
+    }
+    , "keywords": [
+    "angularJS"
+    , "example"
+    , "teaching"
+  ]
+    , "dependencies": {
+        "bower": "^1.4.1"
+        , "g": "^2.0.0"
+        , "gulp": "^3.9.0"
+        , "gulp-gjslint": "^0.1.4"
+        , "gulp-jshint": "^1.11.0"
+        , "gulp-jslint": "^0.2.2"
+        , "gulp-webserver": "^0.9.1"
+        , "jasmine": "^2.3.2"
+        , "jasmine-core": "^2.3.4"
+        , "karma": "^0.13.8"
+        , "karma-chrome-launcher": "^0.2.0"
+        , "karma-cli": "^0.1.0"
+        , "karma-jasmine": "^0.3.6"
+        , "karma-requirejs": "^0.2.2"
+        , "requirejs": "^2.1.20"
+    }
+    , "preferGlobal": true
+    , "private": false
+    , "license": "MIT"
 }
