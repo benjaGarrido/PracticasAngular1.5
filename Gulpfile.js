@@ -1,10 +1,11 @@
 /*global require, console*/
-var gulp = require('gulp')
-    , webserver = require('gulp-webserver')
-    , jsLint = require("gulp-jslint")
+var gulp = require("gulp")
+    , webserver = require("gulp-webserver")
     , jsHint = require("gulp-jshint")
-    , gjsLint = require("gulp-gjslint");
-// Servidor web de desarrollo 
+    , jsLint = require("gulp-jslint")
+    , gjsLint = require("gulp-gjslint")
+    , KarmaServer = require("karma").Server;
+// Servidor web de desarrollo
 gulp.task("dev-server", function () {
     "use strict";
     gulp.src("./app").pipe(webserver({
@@ -31,4 +32,13 @@ gulp.task("jsGoogleLint", function () {
         fail: true
     });
 });
-gulp.task("default", ["jsLint", "dev-server"]);
+// Pruebas unitarias con Karma
+gulp.task("karmaTest", function (done) {
+    "use strict";
+    var karmaServer = new KarmaServer({
+        configFile: __dirname + "/karma.config.js"
+        , singleRun: true
+    }, done);
+    karmaServer.start();
+});
+gulp.task("default", ["dev-server"]);
